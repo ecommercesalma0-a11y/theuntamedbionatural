@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Untamed - العناية بالبشرة الطبيعية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        :root {
+            --primary: #8a6d3b;
+            --primary-light: #f9f5eb;
+            --secondary: #5d8b7f;
+            --light: #f8f9fa;
+            --dark: #333333;
+            --gray: #777777;
+            --success: #2c8c4a;
+            --border-radius: 12px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: #fefefe;
+            color: var(--dark);
+            line-height: 1.6;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%);
+            padding: 20px 0 40px;
+            border-bottom: 1px solid rgba(138, 109, 59, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo .tag {
+            background-color: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(138, 109, 59, 0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: #7a5f32;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(138, 109, 59, 0.4);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .hero-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            background-color: rgba(138, 109, 59, 0.1);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border-right: 4px solid var(--primary);
+            margin: 25px 0;
+        }
+        
+        .hero-image {
+            text-align: center;
+        }
+        
+        .product-image {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 50px 0 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 5px solid var(--primary-light);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .product-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* How to Use Section */
+        .usage-section {
+            background-color: var(--primary-light);
+            padding: 50px 0;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .usage-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .step {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background-color: var(--primary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .customer-name {
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .country {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: normal;
+        }
+        
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .feature h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Gift Section */
+        .gift-section {
+            background-color: #e8f4f1;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin: 40px 0;
+            text-align: center;
+            border: 2px dashed var(--secondary);
+        }
+        
+        .gift-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        /* Order Form */
+        .order-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            margin: 60px 0;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .order-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .form-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #f9f9f9;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(138, 109, 59, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 17px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #7a5f32;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 109, 59, 0.3);
+        }
+        
+        .success-message {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .products, .testimonials, .usage-steps, .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .products, .testimonials, .usage-steps, .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .order-section {
+                padding: 25px;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e01b24;
+        }
+        
+        .whatsapp-contact {
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-contact:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>THE UNTAMED</h1>
+                    <span class="tag">Bio & Natural</span>
+                </div>
+                <a href="#order-form" class="cta-button">
+                    <i class="fas fa-shopping-cart"></i> اطلبي الآن
+                </a>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>وذعي الحبوب والتصنفات والمسام الواسعة مع روتين متكامل للعناية اليومية بالبشرة</h2>
+                    <p>مجموعة متكاملة للعناية بالبشرة توجيد لون البشرة وإشراقتها بمكونات طبيعية + ترطيب عميق يمنح بشرتك نضارة كل يوم</p>
+                    
+                    <div class="highlight">
+                        <p><i class="fas fa-quote-left"></i> من النساء أكدن تحسن ملمس بشرتهن خلال أول أسبوعين! اختفت البقع تدريجياً، وأصبحت البشرة أكثر نعومة وإشراقاً.</p>
+                    </div>
+                    
+                    <a href="#order-form" class="cta-button">
+                        <i class="fas fa-gift"></i> احصلي على المنتج الآن
+                    </a>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="product-image-placeholder">
+                        <div style="width: 100%; height: 350px; background: linear-gradient(135deg, #8a6d3b 0%, #5d8b7f 100%); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; box-shadow: var(--box-shadow);">
+                            <div style="text-align: center; padding: 20px;">
+                                <i class="fas fa-spa" style="font-size: 4rem; margin-bottom: 15px;"></i>
+                                <p>مجموعة The Untamed الكاملة</p>
+                                <p style="font-size: 1rem; margin-top: 10px;">للبشرة الطبيعية المشرقة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <div class="container">
+        <h2 class="section-title">مجموعة العناية الكاملة</h2>
+        
+        <div class="products">
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-pump-soap"></i>
+                </div>
+                <h3>رغوة التنظيف</h3>
+                <p>تفتح وتوجد لون البشرة بفضل زهرة الكركدي. تنظف البشرة بعمق دون تجفيفها.</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h3>سيروم الكوالتين</h3>
+                <p>يقبل من البقع الداكنة ويصبق المسام. يعمل على تفتيح البشرة وتوحيد لونها.</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-cream"></i>
+                </div>
+                <h3>كريم الترطيب</h3>
+                <p>يرطب البشرة بعمق بفضل الرتبينول والهياورونيك. يحافظ على نضارة البشرة طوال اليوم.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- How to Use Section -->
+    <section class="usage-section">
+        <div class="container">
+            <h2 class="section-title">طريقة الاستعمال</h2>
+            
+            <div class="usage-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-wind step-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h4>التنظيف</h4>
+                    <p>أغسل وجهك برغوة التنظيف صباح ومساء</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-tint step-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h4>السيروم</h4>
+                    <p>ضعي قطرات من السيروم على بشرتك لتفتيح البقع وتضييق المسام</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-cream step-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h4>الترطيب</h4>
+                    <p>ضعي كريم الترطيب وقومي بمساج خفيف</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-heart step-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h4>النتيجة</h4>
+                    <p>صالـح لجميع أنواع البشرة. استمتعي ببشرة نضرة ومشرقة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <div class="container">
+        <h2 class="section-title">أكثر من 1000 زبون من جميع أنحاء العالم يقفون بجانبنا</h2>
+        
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"لأول مرة أشعر بفرق كبير في منتج للعناية بالبشرة. كانت راحة من أول أسبوع من الاستخدام. أنصح به بشدة."</p>
+                <div class="customer-name">
+                    <i class="fas fa-user-circle"></i> ماريا <span class="country">إسبانيا</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"بعد استخدام The Untamed، تحسنت بشرتي بشكل ملحوظ. أصبحت أكثر نعومة واختفى الكثير من البقع."</p>
+                <div class="customer-name">
+                    <i class="fas fa-user-circle"></i> خديجة <span class="country">السعودية</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"المنتج رائع حقاً. لاحظت تحسناً في نضارة بشرتي من الأسبوع الأول. أنصح كل صديقاتي به."</p>
+                <div class="customer-name">
+                    <i class="fas fa-user-circle"></i> سارة <span class="country">المغرب</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="container">
+        <h2 class="section-title">لماذا تختارون The Untamed</h2>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h4>الشحن السريع</h4>
+                <p>نتوصل منكم في المغرب وأوروبا فقط ب 29 درهم</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h4>الدفع عند الاستلام</h4>
+                <p>لن تقومي بدفع أي شيء حتى تتوصلي بالمنتج</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>ضمان 100%</h4>
+                <p>منتج آمن وطبيعي 100% مسجل وفق المعايير الصحية</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4>خدمة العملاء</h4>
+                <p>خدمة العملاء مباشرة تحت تصرفك طيلة الأسبوع</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gift Section -->
+    <div class="container">
+        <div class="gift-section">
+            <div class="gift-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h3 style="color: var(--secondary); margin-bottom: 10px;">احصلي على منظف غسيل ملو هدية مع كل طلبية</h3>
+            <p style="color: var(--dark);">عند كل طلبية لمجموعة The Untamed، تحصلين على هدية مجانية من منتجات OCEANS للعناية بالبشرة</p>
+        </div>
+    </div>
+    
+    <!-- Order Form Section -->
+    <section id="order-form" class="order-section">
+        <div class="container">
+            <div class="order-form-container">
+                <h2 class="form-title">لتأكيد طلبك المرجو ملأ الاستمارة أسفله</h2>
+                <p class="form-subtitle">اكتب الاسم الكامل والعنوان الكامل ورقم الهاتف</p>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> تم تأكيد طلبك بنجاح! سيتصل بك فريقنا خلال 24 ساعة
+                </div>
+                
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="fullName" class="required">الاسم الكامل</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" placeholder="اكتب اسمك الكامل هنا" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fullAddress" class="required">العنوان الكامل</label>
+                        <textarea id="fullAddress" name="fullAddress" rows="3" class="form-control" placeholder="اكتب عنوانك الكامل هنا (المدينة، الحي، الشارع، رقم المنزل)" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phoneNumber" class="required">رقم الهاتف</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="اكتب رقم هاتفك هنا" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">ملاحظات إضافية (اختياري)</label>
+                        <textarea id="notes" name="notes" rows="2" class="form-control" placeholder="أي ملاحظات أو أسئلة إضافية"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-check-circle"></i> تأكيد الطلب الآن
+                    </button>
+                </form>
+                
+                <div style="text-align: center; margin-top: 25px;">
+                    <p style="color: var(--gray); margin-bottom: 15px;">لديك استفسار؟ تواصل معنا مباشرة عبر الواتساب</p>
+                    <a href="https://wa.me/212600000000" class="whatsapp-contact" target="_blank">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر الواتساب
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">THE UNTAMED</div>
+            <p>مجموعة متكاملة للعناية بالبشرة الطبيعية</p>
+            <p style="margin-top: 20px; opacity: 0.9;">جميع الحقوق محفوظة &copy; 2023 The Untamed</p>
+            <div class="copyright">
+                <p>تم تصميم هذه الصفحة لعرض منتجات The Untamed للعناية بالبشرة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('orderForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Phone number validation pattern
+            const phonePattern = /^05\d{8}$/;
+            
+            // Form submission handler
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Get form values
+                const fullName = document.getElementById('fullName').value.trim();
+                const fullAddress = document.getElementById('fullAddress').value.trim();
+                const phoneNumber = document.getElementById('phoneNumber').value.trim();
+                
+                // Reset error states
+                document.querySelectorAll('.form-control').forEach(el => {
+                    el.style.borderColor = '#eee';
+                });
+                
+                // Validate full name
+                if (!fullName) {
+                    document.getElementById('fullName').style.borderColor = '#e01b24';
+                    isValid = false;
+                }
+                
+                // Validate full address
+                if (!fullAddress) {
+                    document.getElementById('fullAddress').style.borderColor = '#e01b24';
+                    isValid = false;
+                }
+                
+                // Validate phone number
+                if (!phoneNumber) {
+                    document.getElementById('phoneNumber').style.borderColor = '#e01b24';
+                    isValid = false;
+                } else if (!phonePattern.test(phoneNumber)) {
+                    document.getElementById('phoneNumber').style.borderColor = '#e01b24';
+                    alert('يرجى إدخال رقم هاتف صحيح (10 أرقام تبدأ بـ 05)');
+                    isValid = false;
+                }
+                
+                // If form is valid, save data and show success message
+                if (isValid) {
+                    // Save to localStorage (simulating server submission)
+                    const formData = {
+                        fullName,
+                        fullAddress,
+                        phoneNumber,
+                        notes: document.getElementById('notes').value.trim(),
+                        product: 'The Untamed - مجموعة العناية بالبشرة',
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    localStorage.setItem('untamedOrder', JSON.stringify(formData));
+                    
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Log data to console (for demonstration)
+                    console.log('تم استلام طلب جديد:');
+                    console.log('الاسم:', fullName);
+                    console.log('العنوان:', fullAddress);
+                    console.log('رقم الهاتف:', phoneNumber);
+                    console.log('المنتج: The Untamed - مجموعة العناية بالبشرة');
+                    
+                    // Reset form after 5 seconds
+                    setTimeout(() => {
+                        form.reset();
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }
+            });
+            
+            // Load previously saved data if exists
+            const savedData = localStorage.getItem('untamedOrder');
+            if (savedData) {
+                try {
+                    const data = JSON.parse(savedData);
+                    document.getElementById('fullName').value = data.fullName || '';
+                    document.getElementById('fullAddress').value = data.fullAddress || '';
+                    document.getElementById('phoneNumber').value = data.phoneNumber || '';
+                    document.getElementById('notes').value = data.notes || '';
+                } catch (e) {
+                    console.log('لا توجد بيانات طلب سابقة');
+                }
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
