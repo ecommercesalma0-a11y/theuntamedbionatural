@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <!-- Meta Pixel Code - Updated for 2025 Standards -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '4247903225492720');
+    fbq('track', 'PageView');
+    
+    // Track ViewContent event for product page
+    fbq('track', 'ViewContent', {
+        content_name: 'The Untamed Skincare Set',
+        content_category: 'Beauty & Skincare',
+        content_ids: ['UNTAMED001'],
+        content_type: 'product',
+        value: 990.0,
+        currency: 'MAD'
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=4247903225492720&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Untamed - العناية بالبشرة الطبيعية</title>
@@ -1145,7 +1174,7 @@
                     <h1>THE UNTAMED</h1>
                     <span class="tag">Bio & Natural</span>
                 </div>
-                <a href="#order-form" class="cta-button pulse">
+                <a href="#order-form" class="cta-button pulse" id="orderNowButton">
                     <i class="fas fa-shopping-cart"></i> <span data-ar="اطلبي الآن" data-fr="Commandez maintenant" data-en="Order Now">اطلبي الآن</span>
                 </a>
             </div>
@@ -1195,7 +1224,7 @@
                         </div>
                     </div>
                     
-                    <a href="#order-form" class="cta-button">
+                    <a href="#order-form" class="cta-button" id="getProductButton">
                         <i class="fas fa-gift"></i> <span data-ar="احصلي على المنتج الآن" data-fr="Obtenez le produit maintenant" data-en="Get the Product Now">احصلي على المنتج الآن</span>
                     </a>
                 </div>
@@ -1555,14 +1584,14 @@
                             <div class="price-label" data-ar="سعر خاص لفترة محدودة" data-fr="Prix spécial pour une durée limitée" data-en="Special price for limited time">سعر خاص لفترة محدودة</div>
                         </div>
                     </div>
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="submit-btn" id="submitOrderButton">
                         <i class="fas fa-check-circle"></i> <span data-ar="تأكيد الطلب الآن" data-fr="Confirmer la commande maintenant" data-en="Confirm Order Now">تأكيد الطلب الآن</span>
                     </button>
                 </form>
                 
                 <div style="text-align: center; margin-top: 25px;">
                     <p style="color: var(--gray); margin-bottom: 15px;" data-ar="لديك استفسار؟ تواصل معنا مباشرة عبر الواتساب" data-fr="Vous avez une question ? Contactez-nous directement via WhatsApp" data-en="Have a question? Contact us directly via WhatsApp">لديك استفسار؟ تواصل معنا مباشرة عبر الواتساب</p>
-                    <a href="https://wa.me/212707965504" class="whatsapp-contact" target="_blank">
+                    <a href="https://wa.me/212707965504" class="whatsapp-contact" id="whatsappButton" target="_blank">
                         <i class="fab fa-whatsapp"></i> <span data-ar="تواصل عبر الواتساب" data-fr="Contact via WhatsApp" data-en="Contact via WhatsApp">تواصل عبر الواتساب</span>
                     </a>
                 </div>
@@ -1583,6 +1612,64 @@
     </footer>
 
     <script>
+        // Facebook Pixel Event Tracking Configuration
+        const FACEBOOK_PIXEL_CONFIG = {
+            pixelId: '4247903225492720',
+            events: {
+                // Product View
+                viewContent: {
+                    content_name: 'The Untamed Skincare Set',
+                    content_category: 'Beauty & Skincare',
+                    content_ids: ['UNTAMED001'],
+                    content_type: 'product',
+                    value: 990.0,
+                    currency: 'MAD'
+                },
+                // Add to Cart Simulation
+                addToCart: {
+                    content_name: 'The Untamed Skincare Set',
+                    content_category: 'Beauty & Skincare',
+                    content_ids: ['UNTAMED001'],
+                    content_type: 'product',
+                    value: 990.0,
+                    currency: 'MAD'
+                },
+                // Initiate Checkout
+                initiateCheckout: {
+                    content_name: 'The Untamed Skincare Set',
+                    content_category: 'Beauty & Skincare',
+                    content_ids: ['UNTAMED001'],
+                    content_type: 'product',
+                    num_items: 1,
+                    value: 990.0,
+                    currency: 'MAD'
+                },
+                // Lead (Form Submission)
+                lead: {
+                    content_name: 'The Untamed Order Form',
+                    content_category: 'Lead',
+                    value: 0,
+                    currency: 'MAD'
+                },
+                // Complete Registration (Form Success)
+                completeRegistration: {
+                    content_name: 'The Untamed Order Confirmation',
+                    content_category: 'Registration',
+                    status: 'completed',
+                    value: 990.0,
+                    currency: 'MAD'
+                }
+            }
+        };
+
+        // Facebook Pixel Event Tracking Functions
+        function trackFacebookEvent(eventName, eventData = {}) {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', eventName, eventData);
+                console.log('Facebook Pixel Event Tracked:', eventName, eventData);
+            }
+        }
+
         // Configuration Object - Easy to update images and data
         const CONFIG = {
             // Image URLs - Easy to update
@@ -1630,6 +1717,9 @@
         };
 
         document.addEventListener('DOMContentLoaded', function() {
+            // Track initial page view and content view
+            trackFacebookEvent('ViewContent', FACEBOOK_PIXEL_CONFIG.events.viewContent);
+            
             const form = document.getElementById('orderForm');
             const successMessage = document.getElementById('successMessage');
             const successModal = document.getElementById('successModal');
@@ -1637,6 +1727,26 @@
             const imageSlider = document.getElementById('imageSlider');
             const langButtons = document.querySelectorAll('.lang-btn');
             let currentLanguage = 'ar';
+            
+            // Button click tracking
+            document.getElementById('orderNowButton').addEventListener('click', function() {
+                trackFacebookEvent('AddToCart', FACEBOOK_PIXEL_CONFIG.events.addToCart);
+            });
+            
+            document.getElementById('getProductButton').addEventListener('click', function() {
+                trackFacebookEvent('InitiateCheckout', FACEBOOK_PIXEL_CONFIG.events.initiateCheckout);
+            });
+            
+            document.getElementById('submitOrderButton').addEventListener('click', function() {
+                trackFacebookEvent('InitiateCheckout', FACEBOOK_PIXEL_CONFIG.events.initiateCheckout);
+            });
+            
+            document.getElementById('whatsappButton').addEventListener('click', function() {
+                trackFacebookEvent('Contact', {
+                    method: 'whatsapp',
+                    content_name: 'WhatsApp Inquiry'
+                });
+            });
             
             // Update copyright year from config
             const copyrightElement = document.querySelector('footer p[data-ar*="جميع الحقوق محفوظة"]');
@@ -1695,6 +1805,9 @@
                 
                 // If form is valid, save data and show success message
                 if (isValid) {
+                    // Track Lead event
+                    trackFacebookEvent('Lead', FACEBOOK_PIXEL_CONFIG.events.lead);
+                    
                     // Get current date and time
                     const now = new Date();
                     const orderDate = now.toLocaleString();
@@ -1713,6 +1826,9 @@
                     
                     // Save to localStorage
                     localStorage.setItem('untamedOrder', JSON.stringify(orderData));
+                    
+                    // Track CompleteRegistration event
+                    trackFacebookEvent('CompleteRegistration', FACEBOOK_PIXEL_CONFIG.events.completeRegistration);
                     
                     // Send to Telegram
                     sendToTelegram(orderData);
@@ -1962,4 +2078,4 @@
         });
     </script>
 </body>
-</html
+</html>
